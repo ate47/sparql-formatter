@@ -1829,11 +1829,13 @@ function peg$parse(input, options) {
 };
   var peg$f167 = function(p) {
   return {
+    expressionType: 'exists',
     exists: p.graphPattern || p
   };
 };
   var peg$f168 = function(p) {
   return {
+    expressionType: 'notExists',
     notexists: p.graphPattern || p
   };
 };

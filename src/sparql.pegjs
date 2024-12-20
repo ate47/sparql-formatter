@@ -1811,6 +1811,7 @@ StrReplaceExpression = 'REPLACE'i WS* '(' WS* e1:Expression WS* ',' WS* e2:Expre
 ExistsFunc = 'EXISTS'i WS* p:GroupGraphPattern
 {
   return {
+    expressionType: 'exists',
     exists: p.graphPattern || p
   };
 }
@@ -1819,6 +1820,7 @@ ExistsFunc = 'EXISTS'i WS* p:GroupGraphPattern
 NotExistsFunc = 'NOT'i WS* 'EXISTS'i WS* p:GroupGraphPattern
 {
   return {
+    expressionType: 'notExists',
     notexists: p.graphPattern || p
   };
 }

@@ -639,6 +639,13 @@ const getExpression = (expr) => {
         op += ', ' + getExpression(expr.flags);
       }
       return `regex(${op})`;
+    case 'notExists':
+      return `NOT EXISTS ${addPatterns(expr.notexists)}`;
+    case 'exists':
+      return `EXISTS ${addPatterns(expr.exists)}`;
+    default:
+      console.error(expr);
+      return `errorType(${expr.expressionTyp})`;
   }
 };
 
